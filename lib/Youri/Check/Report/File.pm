@@ -142,7 +142,7 @@ sub _report {
 
     my @extensions;
     my $now = DateTime->now(time_zone => 'local');
-    my $footer = "Page generated the " . $now->ymd() . " at " . $now->hms();
+    my $footer = "Page generated the " . $now->ymd() . " at " . $now->hms() . " by <a href=\"https://github.com/guillomovitch/youri-check\">youri-check</a>";
     foreach my $format (@{$self->{_formats}}) {
         $format->add_results(\@results) if @results;
 
@@ -167,7 +167,7 @@ sub _finish_report {
     my ($self, $types, $maintainers) = @_;
 
     my $now = DateTime->now(time_zone => 'local');
-    my $footer = "Page generated the " . $now->ymd() . " at " . $now->hms();
+    my $footer = "Page generated the " . $now->ymd() . " at " . $now->hms() . " by <a href=\"https://github.com/guillomovitch/youri-check\">youri-check</a>";
     foreach my $format (@{$self->{_formats}}) {
         next unless $format->can('create_index');
         print "writing global index page\n" if $self->{_verbose};
